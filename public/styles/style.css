@@ -1,0 +1,316 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.background {
+  position: fixed;
+  z-index: -10;
+  background: #d90429;
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  width: 100%;
+  height: 100vh;
+}
+.background__circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.background__circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: BackAnimate 25s linear infinite;
+  -webkit-animation: BackAnimate 25s linear infinite;
+  bottom: -150px;
+}
+.background__circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+.background__circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+.background__circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+.background__circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+.background__circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+.background__circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+.background__circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+.background__circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+.background__circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+.background__circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+  height: 100vh;
+}
+.container__title {
+  font-size: 4rem;
+  color: #2b2d42;
+  width: 100%;
+  margin: 40px auto;
+}
+.container__sections {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.buttons {
+  font-size: 1.8rem;
+  align-items: center;
+  width: 100%;
+}
+.buttons__list {
+  height: 50px;
+  align-items: center;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  list-style: none;
+}
+.buttons__list--btn {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  width: 200px;
+  background: #2b2d42;
+  color: #edf2f4;
+  padding: 8px 16px;
+  border: 2px outset #edf2f4;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  margin: 12px 0;
+  box-shadow: 2px 2px 2px rgba(47, 47, 47, 0.5);
+}
+
+.bxform {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  max-width: 600px;
+  min-width: 350px;
+  padding: 10px;
+  background: #2b2d42;
+  border: 3px groove #2b2d42;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+}
+.bxform__title {
+  color: #d90429;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.376);
+  font-size: 3rem;
+  margin: 12px auto;
+}
+.bxform__bxfigure {
+  filter: drop-shadow(0px 0px 1px #000);
+  -webkit-filter: drop-shadow(0px 0px 1px #000);
+}
+.bxform__void {
+  color: #edf2f4;
+  background: #d90429;
+  width: 80%;
+  margin: 0 auto 12px auto;
+  padding: 8px;
+  font-size: 2rem;
+  border: 1px solid #1c1c1c;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.bxinput {
+  color: #edf2f4;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+  margin: auto;
+}
+.bxinput .label {
+  font-size: 15px;
+  padding-left: 10px;
+  position: absolute;
+  top: 13px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.bxinput .input {
+  width: 200px;
+  height: 45px;
+  border: none;
+  outline: none;
+  margin: 12px 0;
+  padding: 0px 7px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  background-color: transparent;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0), -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+.bxinput .input:focus {
+  border: 2px solid transparent;
+  color: #fff;
+  box-shadow: 3px 3px 10px rgb(0, 0, 0), -1px -1px 6px rgba(255, 255, 255, 0.4), inset 3px 3px 10px rgb(0, 0, 0), inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+.bxinput__bx-register {
+  text-align: center;
+  width: 100%;
+  margin: 16px auto;
+}
+.bxinput__bx-register--btn {
+  cursor: pointer;
+  width: 150px;
+  background: #d90429;
+  color: #edf2f4;
+  padding: 8px 16px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  margin: 12px 0;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+}
+
+.bxinput .input:valid ~ .label,
+.bxinput .input:focus ~ .label {
+  transition: 0.3s;
+  padding-left: 2px;
+  transform: translateY(-25px);
+  -webkit-transform: translateY(-25px);
+  -moz-transform: translateY(-25px);
+  -ms-transform: translateY(-25px);
+  -o-transform: translateY(-25px);
+}
+
+.bxinput .input:valid,
+.bxinput .input:focus {
+  box-shadow: 3px 3px 10px rgb(0, 0, 0), -1px -1px 6px rgba(255, 255, 255, 0.4), inset 3px 3px 10px rgb(0, 0, 0), inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes BackAnimate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+.table {
+  border-collapse: collapse;
+  width: 75%;
+  font-size: 14px;
+}
+.table .thead {
+  background-color: #f2f2f2;
+}
+.table th, .table td {
+  text-align: left;
+  padding: 8px;
+}
+.table th {
+  background-color: #2b2d42;
+  color: white;
+}
+.table tr {
+  background-color: #f2f2f2;
+}
+.table tr:hover {
+  background-color: #ddd;
+}
+.table td {
+  border-top: 1px solid #dee2e6;
+  color: #2b2d42;
+}
+
+/*# sourceMappingURL=style.css.map */
