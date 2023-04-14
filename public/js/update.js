@@ -1,15 +1,43 @@
+
+// AL INICIAR EL DOCUMENTO CARGA LA BASE Y LA MUESTRA EN FRONT Y SE ACTUALIZA CADA 4 SEGUNDOS
+$editar = false;
 $(document).ready(function() {
-    $.ajax({
-        url: './server/controller_table.php',
-        type: 'GET',
-        success: function(res) {
-            $(tablaAlumnos).html(res);
-        }
+    fetchTable();
+    setInterval(function() {
+        seconds++
+        fetchTable();
+    }, 4000)
+})
+
+// ELIMINA LA FILTA AL DAR CLICK AL BOTON DE LA FILA  
+$(document).on('click', '.btn-delete', function(e) {
+    if (confirm('ESTAS SEGURO DE QUERER ELIMINARLO?')) {
+        let element = $(this)[0].parentElement.parentElement
+        let id = $(element).attr('tableId')
+        $.post('./server/controller_delete.php', {id}, function(res){
+            fetchTable();
+        })
+    }
+})
+
+$(document).on('click', '.btn-update', function(e) {
+    let element = $(this)[0].parentElement.parentElement
+    let id = $(element).attr('tableId')
+    $.post('./server/controller_userup.php', {id}, function(res){
+        let rowAlumno = JSON.parse(res)
+        $('userId').val(rowAlumno.id)
+        $('#ins_nombre').val(rowAlumno.name)
+        $('#ins_apellido').val(rowAlumno.lastName)
+        $('#ins_edad').val(rowAlumno.age)
+        $('#ins_email').val(rowAlumno.email)
+        $('#ins_tel').val(rowAlumno.phone)
+        $('#ins_curso').val(rowAlumno.course)
+        $editar = true
+        $('#userId').val(id)
     })
 })
 
-// SOLUCION CON JQUERY CASI NO LO USO PERO ES MENOS COMPLICADO QUE CON JAVASCRIPT PURO COMO EL EJEMPLO DE ABAJO
-
+// BUSCA SI EXISTE EL DATO EN LA TABLA
 $(inptSearch).keyup(function(e) {
     let search = $(inptSearch).val();
     if (search) {
@@ -29,8 +57,10 @@ $(inptSearch).keyup(function(e) {
     }
 })
 
+// SE ENVIAN LOS DATOS DEL FORMULARIO AL BACK
 $(formRegister).submit(function(e) {
     const postData = {
+        id: $('#userId').val(),
         name: $('#ins_nombre').val(),
         lastName: $('#ins_apellido').val(),
         age: $('#ins_edad').val(),
@@ -38,29 +68,24 @@ $(formRegister).submit(function(e) {
         phone: $('#ins_tel').val(),
         course: $('#ins_curso').val()
     }
-    $.post('./server/controller_register.php', postData, function(res){
+
+    let url = $editar === false ? './server/controller_register.php' : './server/controller_update.php'
+
+    $.post(url, postData, function(res){
         $(alerta).html(res)
         $('#formRegister').trigger('reset')
+        $editar = false
     })
     e.preventDefault();
 })
 
-
-// SOLUCION FUNCIONAL AL EJERCICIO CON JAVASCRIPT PURO QUE ES MI FUERTE - SIN JQUERY
-
-// const inptSearch = document.getElementById('inptSearch');
-
-// inptSearch.addEventListener('keyup', function(e) {
-//   const search = inptSearch.value;
-  
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('POST', './public/js/dataSearch.php');
-//   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//   xhr.onreadystatechange = function() {
-//     if (xhr.readyState === XMLHttpRequest.DONE) {
-//       console.log('soy la respuesta' + xhr.responseText);
-//     }
-//   };
-  
-//   xhr.send('search=' + encodeURIComponent(search));
-// });
+// FUNCION PARA FETCH DE TABLA Y MOSTRARLA EN FRONT
+function fetchTable () {
+    $.ajax({
+        url: './server/controller_table.php',
+        type: 'GET',
+        success: function(res) {
+            $(tablaAlumnos).html(res);
+        }
+    })
+}

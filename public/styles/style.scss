@@ -21,6 +21,9 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.hide {
+    display: none;
+}
 
 .background{
     position: fixed;
@@ -367,6 +370,10 @@ inset -1px -1px 6px rgba(255, 255, 255, 0.4);
   td{
     border-top: 1px solid #dee2e6;
     color: $s_color;
+    a {
+        color: $s_color;
+        text-decoration: none;
+    }
   }
 }
 

@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="./public/js/createDB.js" defer></script>
     <script src="./public/js/update.js" defer></script>
     <title>Document</title>
 </head>
@@ -44,6 +46,7 @@
                     include "./server/controller_register.php";
                 ?>
                 <span class="container__sections--alert" id="alerta"></span>
+                <input type="text" id="userId" class="hide">
                 <div class="bxinput">
                     <input class="input" name="ins_nombre" id="ins_nombre" type="text" >
                     <label class="label">Nombre</label>
@@ -69,7 +72,7 @@
                     <label class="label">Curso</label>
                 </div>
                 <div class="bxinput__bx-register">
-                    <button type="submit" class="bxinput__bx-register--btn" name="btnRegister">Registrar Alumno</button>
+                    <button type="submit" class="bxinput__bx-register--btn" name="btnRegister">Enviar</button>
                 </div>
             </form>
         </section>   
@@ -93,6 +96,9 @@
                 <tbody id="dataTable">
                 <tbody>
             </table>
+            <div id="seconds">
+
+            </div>
         </section>     
     </main>
 </body>

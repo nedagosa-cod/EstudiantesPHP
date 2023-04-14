@@ -9,7 +9,7 @@
         }
 
         $json = array();
-        while($row = mysqli_fetch_array($result)) {
+        while($row = $result->fetch_assoc()) {
             $json[] = array(
                 'id' => $row['id'],
                 'names' => $row['names'],
