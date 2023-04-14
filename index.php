@@ -34,7 +34,7 @@
             </ul>
         </div> -->
         <section class="container__sections">
-            <form action="" method="POST" class="bxform">
+            <form method="POST" class="bxform" id="formRegister">
                 <figure class="bxform__bxfigure">
                     <img src="./public/img/user.png" alt="user-image">
                 </figure>
@@ -43,32 +43,33 @@
                     include "./server/conection.php";
                     include "./server/controller_register.php";
                 ?>
+                <span class="container__sections--alert" id="alerta"></span>
                 <div class="bxinput">
-                    <input class="input" name="ins_nombre" type="text" >
+                    <input class="input" name="ins_nombre" id="ins_nombre" type="text" >
                     <label class="label">Nombre</label>
                 </div>
                 <div class="bxinput">
-                    <input class="input" name="ins_apellido" type="text" >
+                    <input class="input" name="ins_apellido" id="ins_apellido" type="text" >
                     <label class="label">Apellido</label>
                 </div>
                 <div class="bxinput">
-                    <input class="input" name="ins_edad" type="text" >
+                    <input class="input" name="ins_edad" id="ins_edad" type="text" >
                     <label class="label">Edad</label>
                 </div>
                 <div class="bxinput">
-                    <input class="input" name="ins_email" type="text" >
+                    <input class="input" name="ins_email" id="ins_email" type="text" >
                     <label class="label">Correo</label>
                 </div>
                 <div class="bxinput">
-                    <input class="input" name="ins_tel" type="text" >
+                    <input class="input" name="ins_tel" id="ins_tel" type="text" >
                     <label class="label">Telefono</label>
                 </div>
                 <div class="bxinput">
-                    <input class="input" name="ins_curso" type="text" >
+                    <input class="input" name="ins_curso" id="ins_curso" type="text" >
                     <label class="label">Curso</label>
                 </div>
                 <div class="bxinput__bx-register">
-                    <input type="submit" class="bxinput__bx-register--btn" name="btnRegister" value="Registrar Alumno"/>
+                    <button type="submit" class="bxinput__bx-register--btn" name="btnRegister">Registrar Alumno</button>
                 </div>
             </form>
         </section>   
@@ -76,7 +77,8 @@
             <form class="container__sections--bxsearch">
                 <input type="text" placeholder="Buscar Estudiante" id="inptSearch">
             </form>
-            <table class="table" id="tabla">
+            <span id="dataSearched" class="container__sections--searched"></span>
+            <table class="table" id="tablaAlumnos">
                 <thead class="thead">
                     <tr>
                         <th>ID</th>

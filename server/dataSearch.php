@@ -1,7 +1,6 @@
 <?php
-    include('../../server/conection.php');
+    include('conection.php');
     $search = $_POST['search'];
-    echo $search;
     if (!empty($search)) {
         $query = "SELECT * FROM alumnos WHERE names LIKE '$search%'";
         $result = $conn->query($query);

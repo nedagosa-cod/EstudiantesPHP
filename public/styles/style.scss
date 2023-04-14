@@ -150,6 +150,29 @@ body {
                 -o-border-radius: 16px;
             }
         }
+        &--searched {
+            width: 50%;
+            margin: 8px auto;
+            background: $s_color;
+            color: $w_color;
+            border: 2px outset $w_color;
+            p {
+                margin: 4px auto;
+                font-size: 1.4rem;
+            }
+        }
+        &--alert {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            color: $w_color;
+            width: 90%;
+            height: 30px;
+            background: $p_color;
+            margin-bottom: 20px;
+            align-items: center;
+            font-size: 2rem;
+        }
     }
 }
 .buttons {

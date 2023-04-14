@@ -1,4 +1,5 @@
 <?php
+    include('conection.php');
     $sqlTable = 'SELECT * FROM alumnos';
     $resultado = $conn->query($sqlTable);
 
