@@ -132,8 +132,24 @@ body {
     }
     &__sections {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         width: 50%;
+        &--bxsearch {
+            width: 100%;
+            input {
+                background: $w_color;
+                width: 40%;
+                height: 28px;
+                margin: 8px auto;
+                padding: 2px 14px;
+                border-radius: 16px;
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                -ms-border-radius: 16px;
+                -o-border-radius: 16px;
+            }
+        }
     }
 }
 .buttons {

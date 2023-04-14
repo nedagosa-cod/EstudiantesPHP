@@ -73,10 +73,24 @@
             </form>
         </section>   
         <section class="container__sections">
-            <?php
-                include "./server/conection.php";
-                include "./server/controller_table.php";
-            ?>
+            <form class="container__sections--bxsearch">
+                <input type="text" placeholder="Buscar Estudiante" id="inptSearch">
+            </form>
+            <table class="table" id="tabla">
+                <thead class="thead">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Curso</th>
+                    </tr>
+                <thead/>
+                <tbody id="dataTable">
+                <tbody>
+            </table>
         </section>     
     </main>
 </body>
